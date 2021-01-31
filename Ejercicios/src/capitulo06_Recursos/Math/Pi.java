@@ -7,9 +7,9 @@ public class Pi {
 		float piCalculado = 4;
 		int signo = -1;
 		do {
-		piCalculado += signo * 4.0 / x;
-		signo *= -1;
-		x += 2;
+			piCalculado += signo * 4.0 / x;
+			signo *= -1;
+			x += 2;
 
 		} while (Math.abs(Math.PI - piCalculado) >= 0.00001);
 		System.out.println(piCalculado);
