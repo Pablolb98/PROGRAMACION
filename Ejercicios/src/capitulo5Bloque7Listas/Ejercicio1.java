@@ -1,4 +1,4 @@
-package capítulo5Bloque7Listas;
+package capitulo5Bloque7Listas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,17 +13,17 @@ public class Ejercicio1 {
 		/**
 		 * 1.- Escribe un programa editor de textos. Debes utilizar la consola de Java.
 		 * El objetivo es que se pueda editar el contenido de un archivo ficticio. Para
-		 * hacer esto utilizarás una lista de elementos de tipo String. Cada línea del
-		 * texto será representada como un String. Debes mostrar un menú en pantalla,
+		 * hacer esto utilizarï¿½s una lista de elementos de tipo String. Cada lï¿½nea del
+		 * texto serï¿½ representada como un String. Debes mostrar un menï¿½ en pantalla,
 		 * que contenga todas las opciones siguientes, y que funcionen adecuadamente:
 		 *a) "Abandonar el programa". 
-	     *b) "Agregar una línea al texto". Pediras al usuario un String y lo agregarás al final de la lista que representa tu fichero ficticio.
-	     *b) "Insertar una línea en cualquier posición del texto". Pedirás al usuario un String y un número. Insertarás el String en la línea pedida.
-	     *c) "Editar una línea (reescribir su contenido)". Pedirás al usuario un número de línea para sobrescribir, mostrarás al usuario la línea actual que desea sobrescribir. Pedirás un nuevo String. Eliminarás el String actual y cambiarás con el nuevo
-	     *d) "Borrar una línea". Pedirás un número de línea y la eliminarás de la lista.
-	     *e) "Cortar un conjunto de líneas", (marcadas por su posición inicial y final). Pedirás un número de línea inicial y uno final. "Transportarás todas las líneas del intervalo a una nueva lista y las borrarás de la lista original.
-	     *f) "Pegar un conjunto de líneas cortadas en una determinada posición". Pedirás un número de línea en la que insertar lo que tienes cortado con la opción anterior.
-	     *g) "Imprimir el fichero". Mostrarás cada línea del fichero ficticio, aparecerá numerada en la consola.
+	     *b) "Agregar una lï¿½nea al texto". Pediras al usuario un String y lo agregarï¿½s al final de la lista que representa tu fichero ficticio.
+	     *b) "Insertar una lï¿½nea en cualquier posiciï¿½n del texto". Pedirï¿½s al usuario un String y un nï¿½mero. Insertarï¿½s el String en la lï¿½nea pedida.
+	     *c) "Editar una lï¿½nea (reescribir su contenido)". Pedirï¿½s al usuario un nï¿½mero de lï¿½nea para sobrescribir, mostrarï¿½s al usuario la lï¿½nea actual que desea sobrescribir. Pedirï¿½s un nuevo String. Eliminarï¿½s el String actual y cambiarï¿½s con el nuevo
+	     *d) "Borrar una lï¿½nea". Pedirï¿½s un nï¿½mero de lï¿½nea y la eliminarï¿½s de la lista.
+	     *e) "Cortar un conjunto de lï¿½neas", (marcadas por su posiciï¿½n inicial y final). Pedirï¿½s un nï¿½mero de lï¿½nea inicial y uno final. "Transportarï¿½s todas las lï¿½neas del intervalo a una nueva lista y las borrarï¿½s de la lista original.
+	     *f) "Pegar un conjunto de lï¿½neas cortadas en una determinada posiciï¿½n". Pedirï¿½s un nï¿½mero de lï¿½nea en la que insertar lo que tienes cortado con la opciï¿½n anterior.
+	     *g) "Imprimir el fichero". Mostrarï¿½s cada lï¿½nea del fichero ficticio, aparecerï¿½ numerada en la consola.
 		 */
 
 		int opcion;
@@ -81,11 +81,11 @@ public class Ejercicio1 {
 		String strmenu = "\nMenu" 
 				+ "\n0- Abandonar programa" 
 				+ "\n1- Agregar Linea de texto"
-				+ "\n2- Insertar una línea en cualquier posición del texto"
-				+ "\n3- Editar una línea (reescribir su contenido)" 
-				+ "\n4- Borrar una línea"
-				+ "\n5- Cortar un conjunto de líneas"
-				+ "\n6- Pegar un conjunto de líneas cortadas en una determinada posición" 
+				+ "\n2- Insertar una lï¿½nea en cualquier posiciï¿½n del texto"
+				+ "\n3- Editar una lï¿½nea (reescribir su contenido)" 
+				+ "\n4- Borrar una lï¿½nea"
+				+ "\n5- Cortar un conjunto de lï¿½neas"
+				+ "\n6- Pegar un conjunto de lï¿½neas cortadas en una determinada posiciï¿½n" 
 				+ "\n7- Imprimir el fichero"
 				+ "\n8- Imprimir el fichero2";
 		int opcionMenu = Integer.parseInt(JOptionPane.showInputDialog(strmenu));
@@ -125,7 +125,7 @@ public class Ejercicio1 {
 	}
 	
 	public static void pegarLinea(List<String>lista, List<String>lista2) {
-		int linea = Integer.parseInt(JOptionPane.showInputDialog("A partir de que linea desea pegar las lineas cortadas anteriormente?"));//Elegir el 0 porque el fichero2 está vacío. 
+		int linea = Integer.parseInt(JOptionPane.showInputDialog("A partir de que linea desea pegar las lineas cortadas anteriormente?"));//Elegir el 0 porque el fichero2 estï¿½ vacï¿½o. 
 			lista.addAll(linea, lista2);
 		
 		

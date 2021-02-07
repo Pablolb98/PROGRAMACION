@@ -1,4 +1,4 @@
-package capítulo5Bloque7Listas;
+package capitulo5Bloque7Listasï¿½tulo5Bloque7Listas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,22 +12,22 @@ public class Ejercicio2 {
 	public static void main(String[] args) {
 		/**
 		 * 2.- Realiza un programa que trabaje con una Lista de elementos Integer. Debes
-		 * mostrar un menú en pantalla y ofrecer al usuario las siguientes opciones a
+		 * mostrar un menï¿½ en pantalla y ofrecer al usuario las siguientes opciones a
 		 * realizar sobre la lista: a) "Abandonar el programa". b) "Crear aleatoriamente
-		 * la lista de valores". Pedirás al usuario los siguientes datos: longitud de la
-		 * lista, valor mínimo y valor máximo. A continuación limpiarás la lista (por si
-		 * contenía valores), y agregarás tantos elementos enteros como se haya
-		 * indicado, con valores que deben oscilar entre el mínimo y el máximo señalado.
-		 * c) "Calcular suma, media, mayor y menor". Mostrarás en pantalla esos cuatro
-		 * valores. d) "Agregar una cantidad de nuevos valores". Pedirás al usuario los
-		 * siguientes datos: cuántos datos nuevos quiere agregar, posición a partir de
-		 * la que se deben introducir, valor mínimo y valor máximo. Incluirás tantos
-		 * valores como indique el usuario, en la posición indicada, con valores entre
-		 * mínimo y máximo. e) "Eliminar elementos cuyo valor esté en un intervalo".
-		 * Pedirás dos valores al usuario (mínimo y máximo), que conforman un intervalo.
-		 * Eliminarás los valores de la lista de elementos que se encuentren dentro de
-		 * ese intervalo (incluyendo los límites) e informarás de cuantos elementos has
-		 * eliminado de la lista. f) "Imprimir la lista". Mostrarás la lista en
+		 * la lista de valores". Pedirï¿½s al usuario los siguientes datos: longitud de la
+		 * lista, valor mï¿½nimo y valor mï¿½ximo. A continuaciï¿½n limpiarï¿½s la lista (por si
+		 * contenï¿½a valores), y agregarï¿½s tantos elementos enteros como se haya
+		 * indicado, con valores que deben oscilar entre el mï¿½nimo y el mï¿½ximo seï¿½alado.
+		 * c) "Calcular suma, media, mayor y menor". Mostrarï¿½s en pantalla esos cuatro
+		 * valores. d) "Agregar una cantidad de nuevos valores". Pedirï¿½s al usuario los
+		 * siguientes datos: cuï¿½ntos datos nuevos quiere agregar, posiciï¿½n a partir de
+		 * la que se deben introducir, valor mï¿½nimo y valor mï¿½ximo. Incluirï¿½s tantos
+		 * valores como indique el usuario, en la posiciï¿½n indicada, con valores entre
+		 * mï¿½nimo y mï¿½ximo. e) "Eliminar elementos cuyo valor estï¿½ en un intervalo".
+		 * Pedirï¿½s dos valores al usuario (mï¿½nimo y mï¿½ximo), que conforman un intervalo.
+		 * Eliminarï¿½s los valores de la lista de elementos que se encuentren dentro de
+		 * ese intervalo (incluyendo los lï¿½mites) e informarï¿½s de cuantos elementos has
+		 * eliminado de la lista. f) "Imprimir la lista". Mostrarï¿½s la lista en
 		 * pantalla.
 		 */
 		// Declaro variables necesarias
@@ -87,7 +87,7 @@ public class Ejercicio2 {
 				+ "\n1.- Lista de Valores aleatorios (longitud, valorMin y Max)"
 				+ "\n2.- Calcular suma y media" 
 				+ "\n3.- Agregar una cantidad de nuevos valores"
-				+ "\n4.- Eliminar elementos cuyo valor esté en un intervalo" 
+				+ "\n4.- Eliminar elementos cuyo valor estï¿½ en un intervalo" 
 				+ "\n5.- Imprimir la lista";
 		// Muestro el menu y Pido una opcion al usuario
 		int opcionMenu = Integer.parseInt(JOptionPane.showInputDialog(strMenu));
@@ -150,7 +150,7 @@ public class Ejercicio2 {
 	
 	}
 	public static void agregarValores(List<Integer> lista) {
-		int cantNum = Integer.parseInt(JOptionPane.showInputDialog("Cuántos datos nuevos quiere agregar"));
+		int cantNum = Integer.parseInt(JOptionPane.showInputDialog("Cuï¿½ntos datos nuevos quiere agregar"));
 		int valorMin = Integer.parseInt(JOptionPane.showInputDialog("Introduce el numero minimo de la lista"));
 		int valorMax = Integer.parseInt(JOptionPane.showInputDialog("Introduce el numero maximo de la lista"));
 		int posicion = Integer.parseInt(JOptionPane.showInputDialog("A partir de que posicion desea introducir los valores?"));
