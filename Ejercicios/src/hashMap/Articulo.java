@@ -5,10 +5,9 @@ public class Articulo {
 	int codBarras, numEstante, unidadesStock;
 	
 	
-	public Articulo(String nombre, int codBarras, int numEstante, int unidadesStock) {
+	public Articulo(String nombre, int numEstante, int unidadesStock) {
 		super();
 		this.nombre = nombre;
-		this.codBarras = codBarras;
 		this.numEstante = numEstante;
 		this.unidadesStock = unidadesStock;
 	}
@@ -22,17 +21,6 @@ public class Articulo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-
-	public int getCodBarras() {
-		return codBarras;
-	}
-
-
-	public void setCodBarras(int codBarras) {
-		this.codBarras = codBarras;
-	}
-
 
 	public int getNumEstante() {
 		return numEstante;
@@ -57,7 +45,7 @@ public class Articulo {
 
 	@Override
 	public String toString() {
-		return "Articulo [nombre=" + nombre + ", codBarras=" + codBarras + ", numEstante=" + numEstante
+		return "Articulo [nombre=" + nombre + ", numEstante=" + numEstante
 				+ ", unidadesStock=" + unidadesStock + "]";
 	}
 
