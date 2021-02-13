@@ -10,66 +10,66 @@ import javax.swing.JOptionPane;
 public class Ejercicio1 {
 
 	public static void main(String[] args) {
-
-		String fecha = JOptionPane.showInputDialog("Introduce una fecha: ");
+	String str = JOptionPane.showInputDialog("Introduce una fecha (dd/MM/yyyy)");
 		
 		Date fechaFormateada = null;
-
+		
+		
 		try {
-			fechaFormateada = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
+			fechaFormateada = new SimpleDateFormat("DD/MM/YYYY").parse(str);
 			System.out.println(fechaFormateada);
-
 		}
-		catch (ParseException e) {
-			System.out.println("ParseException occured: " + e.getMessage());
+		catch(ParseException e){
+			System.out.println("No se ha podido formatear la fecha, por favor introduce una fecha Válida " + e.getMessage());
 		}
 		
-		System.out.println("Fecha introducida por el usuario: " + fecha);
-		System.out.println("Fecha parseada : " + fechaFormateada);
-		System.out.println(
-				"----------------------------------------------------------------------------------------");
+		System.out.println("Fecha introducida --> " + str);
+		System.out.println("Fecha Formateada --> " + fechaFormateada);
+		
+		System.out.println(""
+				+ "----------------------------------------------------------------------------------------------------------");
 		
 		
-		Calendar calendar = Calendar.getInstance();
 		
-		 //Año
-        System.out.println("(Calendar)Año: " + calendar.get(Calendar.YEAR));
-        System.out.println("(Date)Año: " + new SimpleDateFormat("yyyy").format(fechaFormateada));
-
-        //Mes
-        System.out.println("(Calendar)Mes: " + calendar.get(Calendar.MONTH + 1));
-        System.out.println("(Date)Mes: " + new SimpleDateFormat("MM").format(fechaFormateada));
-
-        //Dia
-        System.out.println("(Calendar)Dia: " + calendar.get(Calendar.DAY_OF_MONTH));
-        System.out.println("(Date)Dia: " + new SimpleDateFormat("dd").format(fechaFormateada));
-
-        //Hora
-        System.out.println("(Calendar)Hora: " + calendar.get(Calendar.HOUR_OF_DAY));
-        System.out.println("(Date)Hora: " + new SimpleDateFormat("HH").format(fechaFormateada));
-
-        //Minutos
-        System.out.println("(Calendar)Minutos: " + calendar.get(Calendar.MINUTE));
-        System.out.println("(Date)Minutos: " + new SimpleDateFormat("mm").format(fechaFormateada));
-
-        //Segundos
-        System.out.println("(Calendar)Segundos: " + calendar.get(Calendar.SECOND));
-        System.out.println("(Date)Año: " + new SimpleDateFormat("ss").format(fechaFormateada));
-		System.out.println(
-				"----------------------------------------------------------------------------------------");
+		Calendar fechaCalendar = Calendar.getInstance();
+		
+		
+		//Año
+		System.out.println("Año en tipo Calendar " + fechaCalendar.get(Calendar.YEAR));
+		System.out.println("Año en tipo Date " + new SimpleDateFormat("yyyy").format(fechaFormateada));
+		
+		//Mes
+		System.out.println("Mes en tipo Calendar " + fechaCalendar.get(Calendar.MONTH));
+		System.out.println("Mes en tipo Date " + new SimpleDateFormat("MM").format(fechaFormateada));
+		
+		//Dia
+		System.out.println("Dia en tipo Calendar " + fechaCalendar.get(Calendar.DAY_OF_MONTH));
+		System.out.println("Dia en tipo Date " + new SimpleDateFormat("dd").format(fechaFormateada));
+		
+		//Hora
+		System.out.println("Hora en tipo Calendar " + fechaCalendar.get(Calendar.HOUR));
+		System.out.println("Hora en tipo Date " + new SimpleDateFormat("HH").format(fechaFormateada));
+		
+		//Minutos
+		System.out.println("Minutos en tipo Calendar " + fechaCalendar.get(Calendar.MINUTE));
+		System.out.println("Minutos en tipo Date " + new SimpleDateFormat("mm").format(fechaFormateada));
+		
+		//Segundos
+		System.out.println("Segundos en tipo Calendar " + fechaCalendar.get(Calendar.SECOND));
+		System.out.println("Segundos en tipo Date " + new SimpleDateFormat("ss").format(fechaFormateada));
+		
+		System.out.println(""
+				+ "----------------------------------------------------------------------------------------------------------");
 
 		
-		calendar.add(Calendar.DAY_OF_MONTH, 3);
-		System.out.println("Suma 3 días : " + calendar.getTime());
-
-		calendar.add(Calendar.WEEK_OF_MONTH, -2);
-		System.out.println("Resto 2 semanas : " + calendar.getTime());
-
-		calendar.add(Calendar.DAY_OF_MONTH, 300);
-		System.out.println("Suma 300 dias : " + calendar.getTime());
-
-		calendar.add(Calendar.YEAR, 4);
-		System.out.println("Suma 4 años : " + calendar.getTime());
+		fechaCalendar.add(Calendar.DAY_OF_MONTH, 3);
+		System.out.println("Suma 3 dias " + fechaCalendar);
+		fechaCalendar.add(Calendar.MONTH, -2);
+		System.out.println("Resta 2 meses " + fechaCalendar);
+		fechaCalendar.add(Calendar.DAY_OF_MONTH, 300);
+		System.out.println("Suma 300 dias " + fechaCalendar);
+		fechaCalendar.add(Calendar.YEAR, 4);
+		System.out.println("Suma 4 años " + fechaCalendar);
 	}
 
 }
