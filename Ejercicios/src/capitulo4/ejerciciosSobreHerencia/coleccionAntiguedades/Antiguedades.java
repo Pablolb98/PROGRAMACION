@@ -1,7 +1,7 @@
 package capitulo4.ejerciciosSobreHerencia.coleccionAntiguedades;
 
 public class Antiguedades {
-protected int añoFabrica;
+protected int anoFabrica;
 protected String origen;
 protected int precio;
 
@@ -9,21 +9,21 @@ public Antiguedades() {
 	super();
 }
 
-public Antiguedades(int añoFabrica, String origen, int precio) {
+public Antiguedades(int anoFabrica, String origen, int precio) {
 	super();
-	this.añoFabrica = añoFabrica;
+	this.anoFabrica = anoFabrica;
 	this.origen = origen;
 	this.precio = precio;
 }
 @Override
 public String toString() {
-	return "Antiguedades [añoFabrica=" + añoFabrica + ", origen=" + origen + ", precio=" + precio + "]";
+	return "Antiguedades [aï¿½oFabrica=" + anoFabrica + ", origen=" + origen + ", precio=" + precio + "]";
 }
-public int getAñoFabrica() {
-	return añoFabrica;
+public int getAnoFabrica() {
+	return anoFabrica;
 }
-public void setAñoFabrica(int añoFabrica) {
-	this.añoFabrica = añoFabrica;
+public void setAnoFabrica(int anoFabrica) {
+	this.anoFabrica = anoFabrica;
 }
 public String getOrigen() {
 	return origen;

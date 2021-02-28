@@ -5,18 +5,18 @@ public class Libro extends Antiguedades {
 	public String autor;
 	public String titulo;
 	
-	public Libro() {
+	public Libro(int i, String string, int j, String string2, String string3) {
 	}
 
-	public Libro(int añoFabrica, String origen, int precio, String autor, String titulo) {
-		super(añoFabrica, origen, precio);
+	public Libro(int aï¿½oFabrica, String origen, int precio, String autor, String titulo) {
+		super(aï¿½oFabrica, origen, precio);
 		this.autor = autor;
 		this.titulo = titulo;
 	}
 
 	@Override
 	public String toString() {
-		return "Libro [autor=" + autor + ", titulo=" + titulo + ", añoFabrica=" + añoFabrica + ", origen=" + origen
+		return "Libro [autor=" + autor + ", titulo=" + titulo + ", aï¿½oFabrica=" + aï¿½oFabrica + ", origen=" + origen
 				+ ", precio=" + precio + "]";
 	}
 	

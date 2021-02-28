@@ -1,4 +1,4 @@
-package capitulo5Bloque7Listas�tulo5Bloque7Listas;
+package capitulo5Bloque7Listas;
 
 import java.util.ArrayList;
 import java.util.List;
