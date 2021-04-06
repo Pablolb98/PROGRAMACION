@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorCoche {
 
@@ -85,6 +87,29 @@ public class ControladorCoche {
 			ex.printStackTrace();
 		}
 		return c;
+	}
+	
+	public List<Coche> findAll () {
+		List<Coche> coches= new ArrayList<Coche>();
+		try {
+			Statement s = this.conn.createStatement();
+			ResultSet rs =  s.executeQuery("select * from tutorialjavacoches.coche");
+			while (rs.next()) {
+				Coche c = new Coche();
+				c = new Coche();
+				c.setId(rs.getInt("id"));
+				c.setIdFabricante(rs.getInt("idFabricante"));
+				c.setBastidor(rs.getString("bastidor"));
+				c.setModelo(rs.getString("modelo"));
+				c.setColor(rs.getString("color"));
+				// Agrego el fabricante a la lista
+				coches.add(c);
+			}
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return coches;
 	}
 	
 

@@ -188,7 +188,8 @@ public class ControladorVenta {
 		catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return registrosAfectados;
-		
+		return registrosAfectados;	
 	}
+	
+	
 }
