@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,10 @@ public class ControladorCliente {
 
 	private static ControladorCliente instance = null;
 	public Connection conn = null;
+	private SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 
+	
+	
 	public static ControladorCliente getInstance() {
 		if (instance == null) {
 			instance = new ControladorCliente();
@@ -120,14 +124,23 @@ public Cliente findAnterior (int idActual) {
 	return c;
 }
 
+public static int convertidorActivo(Cliente c) {
+	
+    if (c.isActivo()) {
+        return 1;
+    }
+    return 0;
+}
+
 public int modificar (Cliente c) {
+	int activo=convertidorActivo(c);
 	int registrosAfectados = 0;
 	try {
 		Statement s = (Statement) this.conn.createStatement(); 
 
 		registrosAfectados = s.executeUpdate ("update cliente set dniNie='" + c.getDniNie() + "', " +
 				" nombre='" + c.getNombre() + "', " + " apellidos='" + c.getApellidos() + "', " + "localidad='" + c.getLocalidad() + 
-				"', " + "fechaNac='" + c.getFechaNac() + "', " + "activo='" + c.isActivo() + "' where id=" + c.getId() + ";");
+				"', " + "fechaNac='" + formatoFecha.format(c.getFechaNac()) + "', " + "activo='" + activo + "' where id=" + c.getId() + ";");
 	   	
 		// Cierre de los elementos
 		s.close();
@@ -139,6 +152,7 @@ public int modificar (Cliente c) {
 }
 
 public int nuevo (Cliente c) {
+	int activo=convertidorActivo(c);
 	int registrosAfectados = 0;
 	int idNuevoRegistro = 0;
 	try {
@@ -147,7 +161,7 @@ public int nuevo (Cliente c) {
 		idNuevoRegistro = nextId();
 		registrosAfectados = s.executeUpdate ("insert into cliente values(" + idNuevoRegistro + ", " +
 		"'" + c.getId() + "', '" + c.getNombre() + "', '" + c.getApellidos() + "', '" + c.getLocalidad() + "', '" + c.getDniNie() +
-		"', '" + c.getFechaNac() + "', '" + c.isActivo() +"');");
+		"', '" + formatoFecha.format(c.getFechaNac()) + "', '" + activo +"');");
 	   	
 		// Cierre de los elementos
 		s.close();

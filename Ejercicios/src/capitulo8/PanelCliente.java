@@ -1,8 +1,4 @@
 package capitulo8;
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
@@ -11,22 +7,24 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JTextField;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFormattedTextField;
 
 public class PanelCliente extends JPanel{
 
-	Cliente actual = null;
+	Cliente actual = new Cliente();
 	private JTextField jtfid;
 	private JTextField jtfnombre;
 	private JTextField jtfapellidos;
 	private JTextField jtflocalidad;
 	private JTextField jtfdniNie;
-	private JTextField jtffechaNac;
-	
+	private JCheckBox jcbActivo;
+	private JFormattedTextField jtfFechaNac;
+	private SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
 
 
 	/**
@@ -38,9 +36,10 @@ public class PanelCliente extends JPanel{
 	 * Create the application.
 	 */
 	public PanelCliente() {
+		super();
 		initialize();
 		this.actual = ControladorCliente.getInstance().findPrimero();
-		
+		cargarActualEnPantalla();
 	}
 
 	private void cargarActualEnPantalla() {
@@ -49,7 +48,9 @@ public class PanelCliente extends JPanel{
 			this.jtfnombre.setText(this.actual.getNombre());
 			this.jtfapellidos.setText(this.actual.getApellidos());
 			this.jtflocalidad.setText(this.actual.getLocalidad());
+			this.jtfFechaNac.setText(this.formatoFecha.format(this.actual.getFechaNac()));
 			this.jtfdniNie.setText(this.actual.getDniNie());
+			this.jcbActivo.setSelected(this.actual.isActivo());
 		}
 	}
 	private void cargarActualDesdePantalla() {
@@ -58,6 +59,13 @@ public class PanelCliente extends JPanel{
 		this.jtfapellidos.setText(this.actual.getApellidos());
 		this.jtflocalidad.setText(this.actual.getLocalidad());
 		this.jtfdniNie.setText(this.actual.getDniNie());
+		try {
+            this.actual.setFechaNac(this.formatoFecha.parse(jtfFechaNac.getText()));
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		this.actual.setActivo(jcbActivo.isSelected());
 	}
 	/**
 	 * Initialize the contents of the frame.
@@ -163,14 +171,14 @@ public class PanelCliente extends JPanel{
 		gbc_lblfechaNac.gridy = 5;
 		add(lblfechaNac, gbc_lblfechaNac);
 		
-		jtffechaNac = new JTextField();
+		jtfFechaNac = new JFormattedTextField();
 		GridBagConstraints gbc_jtffechaNac = new GridBagConstraints();
 		gbc_jtffechaNac.insets = new Insets(0, 0, 5, 0);
 		gbc_jtffechaNac.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jtffechaNac.gridx = 1;
 		gbc_jtffechaNac.gridy = 5;
-		add(jtffechaNac, gbc_jtffechaNac);
-		jtffechaNac.setColumns(10);
+		add(jtfFechaNac, gbc_jtffechaNac);
+		jtfFechaNac.setColumns(10);
 		
 		JPanel panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
@@ -187,25 +195,12 @@ public class PanelCliente extends JPanel{
 		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblactivo = new JLabel("activo");
-		GridBagConstraints gbc_lblactivo = new GridBagConstraints();
-		gbc_lblactivo.insets = new Insets(0, 0, 0, 5);
-		gbc_lblactivo.gridx = 0;
-		gbc_lblactivo.gridy = 0;
-		panel.add(lblactivo, gbc_lblactivo);
-		
-		JRadioButton rdbtnSi = new JRadioButton("Si");
-		GridBagConstraints gbc_rdbtnSi = new GridBagConstraints();
-		gbc_rdbtnSi.insets = new Insets(0, 0, 0, 5);
-		gbc_rdbtnSi.gridx = 1;
-		gbc_rdbtnSi.gridy = 0;
-		panel.add(rdbtnSi, gbc_rdbtnSi);
-		
-		JRadioButton rdbtnNo = new JRadioButton("No");
-		GridBagConstraints gbc_rdbtnNo = new GridBagConstraints();
-		gbc_rdbtnNo.gridx = 2;
-		gbc_rdbtnNo.gridy = 0;
-		panel.add(rdbtnNo, gbc_rdbtnNo);
+		jcbActivo = new JCheckBox("Activo");
+		GridBagConstraints gbc_jcbActivo = new GridBagConstraints();
+		gbc_jcbActivo.insets = new Insets(0, 0, 0, 5);
+		gbc_jcbActivo.gridx = 1;
+		gbc_jcbActivo.gridy = 0;
+		panel.add(jcbActivo, gbc_jcbActivo);
 		
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
@@ -275,17 +270,11 @@ public class PanelCliente extends JPanel{
 			}
 		});
 		
-		cargarDatosCliente();
 		this.actual = ControladorCliente.getInstance().findPrimero();
 		cargarActualEnPantalla();
 		
 	}
 	
-	private void cargarDatosCliente() {
-		List<Cliente> concesionarios = ControladorCliente.getInstance().findAll();
-		
-	
-	}
 	
 	private void guardar () {
 		cargarActualDesdePantalla();
@@ -306,11 +295,14 @@ public class PanelCliente extends JPanel{
 	}
 	
 	private void vaciarCampos() {
-		this.jtfid.setText("" + this.actual.getId());
-		this.jtfnombre.setText(this.actual.getNombre());
-		this.jtfapellidos.setText(this.actual.getApellidos());
-		this.jtflocalidad.setText(this.actual.getLocalidad());
-		this.jtfdniNie.setText(this.actual.getDniNie());
+		this.jtfid.setText("0");
+        this.jtfnombre.setText("");
+        this.jtfapellidos.setText("");
+        this.jtfdniNie.setText("");
+        this.jtfFechaNac.setText("");
+        this.jtflocalidad.setText("");
+        this.jcbActivo.setSelected(false);
+
 	}
 	
 	private void borrar() {

@@ -5,11 +5,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 
 public class ControladorVenta {
 
 	private static ControladorVenta instance = null;
 	public Connection conn = null;
+	private SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 
 	/**
 	 * 
@@ -126,7 +128,7 @@ public class ControladorVenta {
 
 			idNuevoRegistro = nextId();
 			registrosAfectados = s.executeUpdate ("insert into venta values(" + idNuevoRegistro + ", " +
-			"'" + v.getIdCliente() + "', '" + v.getIdConcesionario() + "', '" + v.getIdCoche() + "', '" + v.getFecha() + "', '" + v.getPrecioVenta() + "');");
+			"'" + v.getIdCliente() + "', '" + v.getIdConcesionario() + "', '" + v.getIdCoche() + "', '" + formatoFecha.format(v.getFecha()) + "', '" + v.getPrecioVenta() + "');");
 		   	
 			// Cierre de los elementos
 			s.close();
@@ -172,12 +174,13 @@ public class ControladorVenta {
 	
 	
 	public int modificar (Venta c) {
+		
 		int registrosAfectados = 0;
 		try {
 			Statement s = (Statement) this.conn.createStatement(); 
 
 			registrosAfectados = s.executeUpdate ("update coche set idCliente=" + c.getIdCliente() + ", " +
-					" idConcesionario='" + c.getIdConcesionario() + "', idCoche='" + c.getIdCoche() + "', fecha='" + c.getFecha() + "', precioVenta='" + c.getPrecioVenta() + "' where id=" + c.getId() + ";");
+					" idConcesionario='" + c.getIdConcesionario() + "', idCoche='" + c.getIdCoche() + "', fecha='" + formatoFecha.format(c.getFecha()) + "', precioVenta='" + c.getPrecioVenta() + "' where id=" + c.getId() + ";");
 		   	
 			// Cierre de los elementos
 			s.close();
