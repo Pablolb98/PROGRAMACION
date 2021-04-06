@@ -310,6 +310,7 @@ public class VentanaFabricantes implements ChangeListener, ItemListener {
 			if (regsAfec > 0) {
 				JOptionPane.showMessageDialog(null, "Registro modificado correctamente");
 			}
+			
 		}
 		else { // Alta -  nuevo
 			int idNuevoReg = ControladorFabricante.getInstance().nuevo(this.actual);
