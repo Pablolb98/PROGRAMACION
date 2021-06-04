@@ -27,7 +27,7 @@ public class Main {
 				pruebaConsultaBasica();
 				break;
 			case 2:
-				AñadirFab();
+				AnadirFab();
 				break;
 			case 3:
 				EliminarFab();
@@ -88,7 +88,7 @@ public class Main {
 		}
 	}
 
-	private static void AñadirFab() {
+	private static void AnadirFab() {
 		
 		
 		int id = Integer.parseInt(JOptionPane.showInputDialog("Por favor, Introduce un id"));

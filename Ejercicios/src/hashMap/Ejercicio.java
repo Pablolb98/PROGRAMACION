@@ -23,7 +23,7 @@ public class Ejercicio {
 				System.out.println("Adios!");
 				break;
 			case 1:
-				añadirArticulos();
+				anadirArticulos();
 				break;
 			case 2:
 				borrarArticulos();
@@ -60,7 +60,7 @@ public class Ejercicio {
 		return opcionUsuario;
 	}
 
-	public static void añadirArticulos() {
+	public static void anadirArticulos() {
 		key = JOptionPane.showInputDialog("Inserta el ID del articulo que desea agregar");
 		nombre = JOptionPane.showInputDialog("Inserta el nombre del producto que desea agregar");
 		codBarras = Integer.parseInt(JOptionPane.showInputDialog("Introduce el codigo de Barras"));

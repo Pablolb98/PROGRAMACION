@@ -1,7 +1,5 @@
 package capitulo6.WrappersPrimitivos;
 
-import java.util.Iterator;
-
 import javax.swing.JOptionPane;
 
 public class Ejercicio2CrearPassword {

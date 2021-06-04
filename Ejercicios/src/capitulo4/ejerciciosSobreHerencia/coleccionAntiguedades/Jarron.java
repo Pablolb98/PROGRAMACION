@@ -20,7 +20,7 @@ public class Jarron extends Antiguedades {
 
 	@Override
 	public String toString() {
-		return "Jarron [material=" + material + ", color=" + color + ", añoFabrica=" + añoFabrica + ", origen=" + origen
+		return "Jarron [material=" + material + ", color=" + color + ", añoFabrica=" + anoFabrica + ", origen=" + origen
 				+ ", precio=" + precio + "]";
 	}
 

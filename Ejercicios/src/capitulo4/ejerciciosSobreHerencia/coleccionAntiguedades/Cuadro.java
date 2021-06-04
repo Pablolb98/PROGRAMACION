@@ -14,7 +14,7 @@ public Cuadro(int añoFabrica, String origen, int precio, String pintor, int altu
 
 @Override
 public String toString() {
-	return "Cuadro [pintor=" + pintor + ", altura=" + altura + ", anchura=" + anchura + ", añoFabrica=" + añoFabrica
+	return "Cuadro [pintor=" + pintor + ", altura=" + altura + ", anchura=" + anchura + ", añoFabrica=" + anoFabrica
 			+ ", origen=" + origen + ", precio=" + precio + "]";
 }
 }
